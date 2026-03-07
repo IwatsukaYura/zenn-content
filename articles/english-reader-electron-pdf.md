@@ -1,5 +1,5 @@
 ---
-title: "Electronで英語学習PDFリーダーを作った話 — DeepL翻訳・ハイライト・メモを一画面に"
+title: "Electronで英語学習PDFリーダーを作った話 — 翻訳・ハイライト・メモ -"
 emoji: "📖"
 type: "tech"
 topics: ["electron", "react", "typescript", "deepl", "pdfjs"]
@@ -20,6 +20,8 @@ published: false
 
 リポジトリはこちらです。
 https://github.com/IwatsukaYura/pdf_reader_english
+
+![EnglishReaderのスクリーンショット](https://storage.googleapis.com/zenn-user-upload/1c9fc9df61b4-20260307.png)
 
 ---
 
