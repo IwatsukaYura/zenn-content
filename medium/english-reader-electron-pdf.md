@@ -1,7 +1,7 @@
 ---
 title: "Building an English Learning PDF Reader with Electron — Translation, Highlights, and Notes"
 tags: ["electron", "react", "typescript", "pdf"]
-published: true
+published: false
 canonicalUrl: ""
 ---
 
