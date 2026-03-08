@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "medium:publish": "node medium/publish.mjs",
+    "devto:publish": "node medium/publish-devto.mjs"
   },
   "author": "",
   "license": "ISC",

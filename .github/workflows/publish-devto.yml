@@ -1,0 +1,50 @@
+name: Publish to Dev.to
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "medium/**.md"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Get changed markdown files
+        id: changed
+        run: |
+          files=$(git diff --name-only HEAD~1 HEAD -- 'medium/*.md' | tr '\n' ' ')
+          echo "files=$files" >> $GITHUB_OUTPUT
+
+      - name: Publish changed articles to Dev.to
+        if: steps.changed.outputs.files != ''
+        env:
+          DEVTO_TOKEN: ${{ secrets.DEVTO_TOKEN }}
+        run: |
+          for file in ${{ steps.changed.outputs.files }}; do
+            echo "--- Processing: $file ---"
+            node medium/publish-devto.mjs "$file"
+          done
+
+      - name: Commit updated article IDs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add medium/.article-ids.json
+          if git diff --cached --quiet; then
+            echo "No ID changes to commit."
+          else
+            git commit -m "chore: update Dev.to article IDs [skip ci]"
+            git push
+          fi
