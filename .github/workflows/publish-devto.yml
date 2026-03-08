@@ -9,6 +9,7 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    environment: DEVTO_TOKEN
     permissions:
       contents: write
 
