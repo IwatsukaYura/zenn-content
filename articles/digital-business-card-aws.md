@@ -37,7 +37,7 @@ published: false
 シンプルな1ページ構成で以下の3セクション構成となっています。
 
 - Hero（プロフィール）
-- Skills（スキル一覧
+- Skills（スキル一覧）
 - Contact（SNSリンク）
 
 ![Heroセクション](/images/digital-business-card-aws/hero.png)
