@@ -222,12 +222,14 @@ Terraform の `tfstate` には、リソースID・ARN・パラメータが平文
 
 NFCで配るデジタル名刺を、次の構成で実装しました。
 
-- **フロント**: Next.js 16（Static Export）+ React 19 + Tailwind CSS 4 + Framer Motion
-- **AWS インフラ**: S3 + CloudFront + OAC（パブリックアクセス全閉）
-- **CI/CD**: GitHub Actions + OIDC（鍵レス）、main push で自動デプロイ
-- **IaC**: Terraform でインフラを完全コード管理、State は S3+DynamoDB
-- **コスト管理**: AWS Budgets で月 $1 アラート
-- **NFC**: タグに URL を NDEF 形式で書き込むだけ。サイト側に特別な実装は不要
+| 領域         | 採用技術・サービス                                                     | ポイント                                      |
+| ------------ | ---------------------------------------------------------------------- | --------------------------------------------- |
+| フロント     | Next.js 16（Static Export）+ React 19 + Tailwind CSS 4 + Framer Motion | 静的書き出しでランタイム不要                  |
+| AWS インフラ | S3 + CloudFront + OAC                                                  | パブリックアクセス全閉、CloudFront 経由のみ   |
+| CI/CD        | GitHub Actions + OIDC                                                  | main push で自動デプロイ・鍵レス認証          |
+| IaC          | Terraform                                                              | State は S3 + DynamoDB で安全に管理           |
+| コスト管理   | AWS Budgets                                                            | 月 $1 を閾値にメール通知                      |
+| NFC          | NDEF 形式の URI レコード                                               | タグに URL を書き込むだけ。サイト側の実装不要 |
 
 ポイントは、サイトそのものの実装を最小に抑え、**「URLをタップした瞬間に開く体験」** を AWS の CDN 構成と GitHub Actions の自動デプロイで支えていること。
 すべて標準的な AWS の道具で組み立てられるのが今回の構成です。
