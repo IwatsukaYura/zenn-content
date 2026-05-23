@@ -28,9 +28,7 @@ published: false
 
 ### NFCタップから表示までのデモ
 
-<!-- TODO: NFCタップ → サイトが開くまでのデモ動画を挿入 -->
-
-![NFCタップのデモ](TODO: 動画URL)
+![NFCタップのデモ](/images/digital-business-card-aws/record_for_card.gif)
 
 ### 表示されるサイト
 
