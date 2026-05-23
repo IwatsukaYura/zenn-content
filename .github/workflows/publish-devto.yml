@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - "medium/**.md"
+      - 'devio/**.md'
 
 jobs:
   publish:
@@ -20,12 +20,12 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: '20'
 
       - name: Get changed markdown files
         id: changed
         run: |
-          files=$(git diff --name-only HEAD~1 HEAD -- 'medium/*.md' | tr '\n' ' ')
+          files=$(git diff --name-only HEAD~1 HEAD -- 'devio/*.md' | tr '\n' ' ')
           echo "files=$files" >> $GITHUB_OUTPUT
 
       - name: Publish changed articles to Dev.to
@@ -35,18 +35,18 @@ jobs:
         run: |
           for file in ${{ steps.changed.outputs.files }}; do
             echo "--- Processing: $file ---"
-            node medium/publish-devto.mjs "$file"
+            node devio/publish-devto.mjs "$file"
           done
 
       - name: Commit updated article IDs
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if [ ! -f medium/.article-ids.json ]; then
+          if [ ! -f devio/.article-ids.json ]; then
             echo "No article IDs file found, skipping commit."
             exit 0
           fi
-          git add medium/.article-ids.json
+          git add devio/.article-ids.json
           if git diff --cached --quiet; then
             echo "No ID changes to commit."
           else

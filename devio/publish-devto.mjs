@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 /**
  * Publish or update a Markdown file on Dev.to via API.
- * Published article IDs are stored in medium/.article-ids.json to enable updates.
+ * Published article IDs are stored in devio/.article-ids.json to enable updates.
  *
  * Usage:
- *   DEVTO_TOKEN=your_token node medium/publish-devto.mjs medium/your-article.md
+ *   DEVTO_TOKEN=your_token node devio/publish-devto.mjs devio/your-article.md
  *
  * Or store the token in .env:
  *   echo "DEVTO_TOKEN=your_token" >> .env
- *   node medium/publish-devto.mjs medium/your-article.md
+ *   node devio/publish-devto.mjs devio/your-article.md
  *
  * Get your token at: https://dev.to/settings/extensions > DEV Community API Keys
  *
@@ -40,7 +40,7 @@ if (!token) {
 
 const filePath = process.argv[2];
 if (!filePath) {
-  console.error("Usage: node medium/publish-devto.mjs <path-to-markdown>");
+  console.error("Usage: node devio/publish-devto.mjs <path-to-markdown>");
   process.exit(1);
 }
 
@@ -92,7 +92,7 @@ if (!fm.published) {
 }
 
 // Load article ID store
-const idsPath = path.resolve("medium/.article-ids.json");
+const idsPath = path.resolve("devio/.article-ids.json");
 const idStore = fs.existsSync(idsPath) ? JSON.parse(fs.readFileSync(idsPath, "utf-8")) : {};
 const existingId = idStore[filePath];
 
@@ -139,4 +139,4 @@ fs.writeFileSync(idsPath, JSON.stringify(idStore, null, 2) + "\n", "utf-8");
 
 console.log(`${existingId ? "Updated" : "Published"} successfully!`);
 console.log(`URL : ${post.url}`);
-console.log(`ID  : ${post.id} (saved to medium/.article-ids.json)`);
+console.log(`ID  : ${post.id} (saved to devio/.article-ids.json)`);
