@@ -1,3 +1,11 @@
+---
+title: 'Google OAuthでログイン機能を実装する（Go + Gin）'
+emoji: '🔐'
+type: 'tech'
+topics: ['go', 'oauth', 'gin', 'googleoauth', 'oidc']
+published: false
+---
+
 # OAuthとは
 OAuth（Open Authorization） は、**ユーザーの資格情報（IDやパスワードなど）を直接共有することなく、あるアプリケーションが別のサービスのデータにアクセスすることを許可する**ための認可フレームワークです。
 つまり、あるアプリが他のサービスの特定データにアクセスしたいときに使われる **「認可」** の仕組みです。
