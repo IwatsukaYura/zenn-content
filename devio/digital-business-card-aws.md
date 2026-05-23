@@ -1,7 +1,7 @@
 ---
 title: "Building an NFC Digital Business Card with Next.js + AWS at Zero Operating Cost"
 tags: ["nextjs", "aws", "terraform", "githubactions"]
-published: false
+published: true
 canonicalUrl: ""
 ---
 
