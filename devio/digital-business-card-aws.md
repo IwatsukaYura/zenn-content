@@ -28,6 +28,8 @@ A picture is worth a thousand words, so let me start with the actual behavior.
 
 ![NFC tap demo](https://raw.githubusercontent.com/IwatsukaYura/zenn-content/main/images/digital-business-card-aws/record_for_card.gif)
 
+*Note: the GIF is heavily compressed to keep the file size down, so the image quality is a bit rough.*
+
 ### The site itself
 
 A simple single-page layout with three sections:

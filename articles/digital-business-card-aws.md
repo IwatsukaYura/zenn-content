@@ -30,6 +30,8 @@ published: false
 
 ![NFCタップのデモ](/images/digital-business-card-aws/record_for_card.gif)
 
+*※ ファイルサイズの都合で画質は粗めですが、雰囲気だけでも伝われば。*
+
 ### 表示されるサイト
 
 シンプルな1ページ構成で以下の3セクション構成となっています。
