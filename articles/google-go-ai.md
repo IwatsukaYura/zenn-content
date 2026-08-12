@@ -126,10 +126,6 @@ Goの良さをつらつらと書いており、私はとても好きな文章で
 
 根本的な変化がまた起こった時、その時のソフトウェアエンジニアリングはどんなものでしょうか。我々エンジニアは生き残れるのだろうか。
 
-## 参考資料
-
-- [Why Go is an Ideal Language for AI-Assisted Software Engineering](https://developers.googleblog.com/why-go-is-an-ideal-language-for-ai-assisted-software-engineering/) — 本記事で和訳した原文
-- [research.swtch.com/vgo-eng](https://research.swtch.com/vgo-eng) — 「ソフトウェアエンジニアリング ≠ プログラミング」の出典
 
 [^vgo-eng]: 出典：[research.swtch.com/vgo-eng](https://research.swtch.com/vgo-eng)（"Software engineering is not the same thing as programming."）
 
